@@ -8,8 +8,6 @@ public class OnTrigger : MonoBehaviour {
     public GameObject Snooze;
     public GameObject MakeBed;
     public GameObject LeaveBed;
-    public GameObject PickRandomClothes;
-    public GameObject CoordinateOutfit;
     public GameObject Shave;
     public GameObject NoShave;
     public GameObject WashFaceAndTeeth;
@@ -20,7 +18,11 @@ public class OnTrigger : MonoBehaviour {
     public GameObject Coffee;
     public GameObject WashDishesNow;
     public GameObject WashDishesLater;
-    
+    public GameObject UseToilet;
+    public GameObject DontUseToilet;
+    public GameObject WatchTV;
+    public GameObject HeadToWork;
+
 
     public void Start()
     {
@@ -28,8 +30,6 @@ public class OnTrigger : MonoBehaviour {
         Snooze.SetActive(false);
         MakeBed.SetActive(false);
         LeaveBed.SetActive(false);
-        PickRandomClothes.SetActive(false);
-        CoordinateOutfit.SetActive(false);
         Shave.SetActive(false);
         NoShave.SetActive(false);
         WashFaceAndTeeth.SetActive(false);
@@ -40,6 +40,10 @@ public class OnTrigger : MonoBehaviour {
         Coffee.SetActive(false);
         WashDishesNow.SetActive(false);
         WashDishesLater.SetActive(false);
+        UseToilet.SetActive(false);
+        DontUseToilet.SetActive(false);
+        WatchTV.SetActive(false);
+        HeadToWork.SetActive(false);
     } 
 
     void OnTriggerEnter(Collider other)
@@ -55,19 +59,7 @@ public class OnTrigger : MonoBehaviour {
             MakeBed.SetActive(true);
             LeaveBed.SetActive(true);
         }
-
-        if (other.tag == "Wardrobe")
-        {
-            PickRandomClothes.SetActive(true);
-            CoordinateOutfit.SetActive(true);
-        }
-
         
-        //if (other.tag == "Mirror")
-       // {
-      //      Shave.SetActive(true);
-      //      NoShave.SetActive(true);
-      //  }
 
         if (other.tag == "BathroomBasin")
         {
@@ -81,6 +73,8 @@ public class OnTrigger : MonoBehaviour {
         {
             ToiletSeatUp.SetActive(true);
             ToiletSeatDown.SetActive(true);
+            UseToilet.SetActive(true);
+            DontUseToilet.SetActive(true);
         }
 
         if (other.tag == "CoffeeMachine")
@@ -95,7 +89,13 @@ public class OnTrigger : MonoBehaviour {
             WashDishesLater.SetActive(true);
         }
 
-       
+        if (other.tag == "Sofa")
+        {
+            WatchTV.SetActive(true);
+            HeadToWork.SetActive(true);
+        }
+
+        
     }
 
     private void OnTriggerExit(Collider other)
@@ -112,18 +112,6 @@ public class OnTrigger : MonoBehaviour {
             LeaveBed.SetActive(false);
         }
 
-        if (other.tag == "Wardrobe")
-        {
-            PickRandomClothes.SetActive(false);
-            CoordinateOutfit.SetActive(false);
-        }
-
-
-        //if (other.tag == "Mirror")
-        //{
-        //Shave.SetActive(false);
-        //    NoShave.SetActive(false);
-        //}
 
         if (other.tag == "BathroomBasin")
         {
@@ -137,6 +125,8 @@ public class OnTrigger : MonoBehaviour {
         {
             ToiletSeatUp.SetActive(false);
             ToiletSeatDown.SetActive(false);
+            UseToilet.SetActive(false);
+            DontUseToilet.SetActive(false);
         }
 
         if (other.tag == "CoffeeMachine")
@@ -150,6 +140,14 @@ public class OnTrigger : MonoBehaviour {
             WashDishesNow.SetActive(false);
             WashDishesLater.SetActive(false);
         }
+
+
+        if (other.tag == "Sofa")
+        {
+            WatchTV.SetActive(false);
+            HeadToWork.SetActive(false);
+        }
+        
     }
 
 }
