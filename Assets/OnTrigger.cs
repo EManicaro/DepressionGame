@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class OnTrigger : MonoBehaviour {
+
     // target for reference
     public GameObject Getup;
     public GameObject Snooze;
