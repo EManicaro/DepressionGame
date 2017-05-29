@@ -5,8 +5,8 @@ using UnityEngine;
 public class OnTrigger : MonoBehaviour {
 
     // target for reference
-    public GameObject Getup;
-    public GameObject Snooze;
+    public GameObject Choice1;
+    
     public GameObject MakeBed;
     public GameObject LeaveBed;
     public GameObject Shave;
@@ -27,8 +27,8 @@ public class OnTrigger : MonoBehaviour {
 
     public void Start()
     {
-        Getup.SetActive(false);
-        Snooze.SetActive(false);
+        Choice1.SetActive(false);
+        
         MakeBed.SetActive(false);
         LeaveBed.SetActive(false);
         Shave.SetActive(false);
@@ -51,8 +51,8 @@ public class OnTrigger : MonoBehaviour {
     {
         if (other.tag == "Alarm")
         {
-            Snooze.SetActive(true);
-            Getup.SetActive(true);
+            Choice1.SetActive(true);
+           
         }
 
         if (other.tag == "Bed")
@@ -103,8 +103,8 @@ public class OnTrigger : MonoBehaviour {
     {
         if (other.tag == "Alarm")
         {
-            Getup.SetActive(false);
-            Snooze.SetActive(false);
+            Choice1.SetActive(false);
+            
         }
 
         if (other.tag == "Bed")
