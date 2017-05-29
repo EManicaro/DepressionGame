@@ -2,153 +2,112 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnTrigger : MonoBehaviour {
-
+public class OnTrigger : MonoBehaviour
+{
     // target for reference
-    public GameObject Choice1;
-    
-    public GameObject MakeBed;
-    public GameObject LeaveBed;
-    public GameObject Shave;
-    public GameObject NoShave;
-    public GameObject WashFaceAndTeeth;
-    public GameObject WashFace;
-    public GameObject ToiletSeatUp;
-    public GameObject ToiletSeatDown;
-    public GameObject ToastAndCoffee;
-    public GameObject Coffee;
-    public GameObject WashDishesNow;
-    public GameObject WashDishesLater;
-    public GameObject UseToilet;
-    public GameObject DontUseToilet;
-    public GameObject WatchTV;
-    public GameObject HeadToWork;
+    public GameObject choice1;
+    public GameObject choice2;
+    public GameObject choice3;
+    public GameObject choice4;
+    public GameObject choice5;
+    public GameObject choice6;
+    public GameObject choice7;
 
 
     public void Start()
     {
-        Choice1.SetActive(false);
-        
-        MakeBed.SetActive(false);
-        LeaveBed.SetActive(false);
-        Shave.SetActive(false);
-        NoShave.SetActive(false);
-        WashFaceAndTeeth.SetActive(false);
-        WashFace.SetActive(false);
-        ToiletSeatUp.SetActive(false);
-        ToiletSeatDown.SetActive(false);
-        ToastAndCoffee.SetActive(false);
-        Coffee.SetActive(false);
-        WashDishesNow.SetActive(false);
-        WashDishesLater.SetActive(false);
-        UseToilet.SetActive(false);
-        DontUseToilet.SetActive(false);
-        WatchTV.SetActive(false);
-        HeadToWork.SetActive(false);
-    } 
+        choice1.SetActive(false);
+        choice2.SetActive(false);
+        choice3.SetActive(false);
+        choice4.SetActive(false);
+        choice5.SetActive(false);
+        choice6.SetActive(false);
+        choice7.SetActive(false);
+
+
+    }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Alarm")
         {
-            Choice1.SetActive(true);
-           
+            choice1.SetActive(true);
         }
 
         if (other.tag == "Bed")
         {
-            MakeBed.SetActive(true);
-            LeaveBed.SetActive(true);
+            choice2.SetActive(true);
         }
-        
+
 
         if (other.tag == "BathroomBasin")
         {
-            Shave.SetActive(true);
-            NoShave.SetActive(true);
-            WashFaceAndTeeth.SetActive(true);
-            WashFace.SetActive(true);
+            choice3.SetActive(true);
         }
 
         if (other.tag == "Toilet")
         {
-            ToiletSeatUp.SetActive(true);
-            ToiletSeatDown.SetActive(true);
-            UseToilet.SetActive(true);
-            DontUseToilet.SetActive(true);
+            choice4.SetActive(true);
         }
 
         if (other.tag == "CoffeeMachine")
         {
-            ToastAndCoffee.SetActive(true);
-            Coffee.SetActive(true);
+            choice5.SetActive(true);
         }
 
         if (other.tag == "KitchenBasin")
         {
-            WashDishesNow.SetActive(true);
-            WashDishesLater.SetActive(true);
+            choice6.SetActive(true);
         }
 
         if (other.tag == "Sofa")
         {
-            WatchTV.SetActive(true);
-            HeadToWork.SetActive(true);
+            choice7.SetActive(true);
         }
 
-        
+
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Alarm")
         {
-            Choice1.SetActive(false);
-            
+            choice1.SetActive(false);
         }
 
         if (other.tag == "Bed")
         {
-            MakeBed.SetActive(false);
-            LeaveBed.SetActive(false);
+            choice2.SetActive(false);
         }
 
 
         if (other.tag == "BathroomBasin")
         {
-            Shave.SetActive(false);
-            NoShave.SetActive(false);
-            WashFaceAndTeeth.SetActive(false);
-            WashFace.SetActive(false);
+            choice3.SetActive(false);
         }
 
         if (other.tag == "Toilet")
         {
-            ToiletSeatUp.SetActive(false);
-            ToiletSeatDown.SetActive(false);
-            UseToilet.SetActive(false);
-            DontUseToilet.SetActive(false);
+            choice4.SetActive(false);
         }
 
         if (other.tag == "CoffeeMachine")
         {
-            ToastAndCoffee.SetActive(false);
-            Coffee.SetActive(false);
+            choice5.SetActive(false);
         }
 
         if (other.tag == "KitchenBasin")
         {
-            WashDishesNow.SetActive(false);
-            WashDishesLater.SetActive(false);
+            choice6.SetActive(false);
         }
 
 
         if (other.tag == "Sofa")
         {
-            WatchTV.SetActive(false);
-            HeadToWork.SetActive(false);
+            choice7.SetActive(false);
         }
-        
+
     }
 
 }
+

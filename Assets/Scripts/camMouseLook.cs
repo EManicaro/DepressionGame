@@ -16,10 +16,13 @@ public class camMouseLook : MonoBehaviour
     // when the camera turns/move etc, it will control the whole body of the character
     GameObject character;
 
+
     void Start()
     {
         // character is set to the parent of the camera
         character = this.transform.parent.gameObject;
+
+      
     }
 
     void Update()
