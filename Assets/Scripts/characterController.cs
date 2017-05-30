@@ -8,8 +8,8 @@ public class characterController : MonoBehaviour
     public float speed = 10.0F;
 
     //time variables
-    public float hours = 7;
-    public float minutes = 0;
+    public int hours = 7;
+    public int minutes = 0;
 
     //this is the canvas text box
     public Text timeText;
@@ -39,19 +39,18 @@ public class characterController : MonoBehaviour
         //move on the X and Y axis
         transform.Translate(straffe, 0, translation);
 
-        // if escape key is pressed, lock state of the cursor will turn off
-        if (Input.GetKeyDown("escape"))
-            Cursor.lockState = CursorLockMode.None;
-
     }
 
     //function for the time
-    public void MoveTimeFwd (int m)
+    public void MoveTimeFwd(int m)
     {
-        float dMinutes = m % 60;
 
-        hours += ((m - dMinutes) / 60);
-        minutes += dMinutes;
+        minutes += m;
+        int dMinutes = minutes % 60;
+
+
+        hours = (hours + ((minutes - dMinutes) / 60)) % 24;
+        minutes = dMinutes;
 
         timeText.text = string.Format("Time: {0}:{1}", hours, minutes.ToString("0#"));
     }

@@ -13,6 +13,8 @@ public class camMouseLook : MonoBehaviour
     // the amount of smoothness
     public float smoothing = 2.0f;
 
+    public bool canMoveCamera = true;
+
     // when the camera turns/move etc, it will control the whole body of the character
     GameObject character;
 
@@ -20,13 +22,15 @@ public class camMouseLook : MonoBehaviour
     void Start()
     {
         // character is set to the parent of the camera
-        character = this.transform.parent.gameObject;
+        character = transform.parent.gameObject;
 
-      
+
     }
 
     void Update()
     {
+        if (!canMoveCamera) return;
+
         //md for mousedelta
         var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
@@ -46,4 +50,23 @@ public class camMouseLook : MonoBehaviour
         //rotate according the he characters up and down not the camera, in order to move the whole character
         character.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, character.transform.up);
     }
+
+    public void CanPlayerLook(bool canLook)
+    {
+        canMoveCamera = canLook;
+        if (!canMoveCamera)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        print(canLook);
+        print(Cursor.lockState);
+    }
+
+
+
 }

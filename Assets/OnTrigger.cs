@@ -65,7 +65,7 @@ public class OnTrigger : MonoBehaviour
             choice7.SetActive(true);
         }
 
-
+        GameObject.FindObjectOfType<camMouseLook>().CanPlayerLook(false);
     }
 
     private void OnTriggerExit(Collider other)
