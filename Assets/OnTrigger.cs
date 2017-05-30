@@ -12,7 +12,10 @@ public class OnTrigger : MonoBehaviour
     public GameObject choice5;
     public GameObject choice6;
     public GameObject choice7;
-
+    public GameObject choice8;
+    public GameObject choice9;
+    public GameObject choice10;
+    public GameObject Message1;
 
     public void Start()
     {
@@ -23,8 +26,10 @@ public class OnTrigger : MonoBehaviour
         choice5.SetActive(false);
         choice6.SetActive(false);
         choice7.SetActive(false);
-
-
+        choice8.SetActive(false);
+        choice9.SetActive(false);
+        choice10.SetActive(false);
+        Message1.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -65,8 +70,29 @@ public class OnTrigger : MonoBehaviour
             choice7.SetActive(true);
         }
 
+        if (other.tag == "WorkDesk")
+        {
+            choice8.SetActive(true);
+        }
+
+        if (other.tag == "ArmChairsWork")
+        {
+            choice9.SetActive(true);
+        }
+
+        if (other.tag == "CoffeeMachineWork")
+        {
+            choice10.SetActive(true);
+        }
+
+        if (other.tag == "Message1")
+        {
+            Message1.SetActive(true);
+        }
         GameObject.FindObjectOfType<camMouseLook>().CanPlayerLook(false);
     }
+
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -79,7 +105,6 @@ public class OnTrigger : MonoBehaviour
         {
             choice2.SetActive(false);
         }
-
 
         if (other.tag == "BathroomBasin")
         {
@@ -101,14 +126,33 @@ public class OnTrigger : MonoBehaviour
             choice6.SetActive(false);
         }
 
-
         if (other.tag == "Sofa")
         {
             choice7.SetActive(false);
         }
+
+        if (other.tag == "WorkDesk")
+        {
+            choice8.SetActive(false);
+        }
+
+        if (other.tag == "ArmChairsWork")
+        {
+            choice9.SetActive(false);
+        }
+
+        if (other.tag == "CoffeeMachineWork")
+        {
+            choice10.SetActive(false);
+        }
+
+        if (other.tag == "Message1")
+        {
+            Message1.SetActive(false);
+        }
+
         GameObject.FindObjectOfType<camMouseLook>().CanPlayerLook(true);
     }
-    
+
 
 }
-
