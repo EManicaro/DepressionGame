@@ -106,8 +106,9 @@ public class OnTrigger : MonoBehaviour
         {
             choice7.SetActive(false);
         }
-
+        GameObject.FindObjectOfType<camMouseLook>().CanPlayerLook(true);
     }
+    
 
 }
 
