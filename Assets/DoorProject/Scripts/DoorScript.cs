@@ -6,7 +6,6 @@ public class DoorScript : MonoBehaviour {
 
     private Animator _animator;
 
-    //public GameObject OpenPanel = null;
 
     private bool _isInsideTrigger = false;
 
@@ -20,7 +19,6 @@ public class DoorScript : MonoBehaviour {
         if (other.tag == "Player")
         {
             _isInsideTrigger = true;
-            //OpenPanel.SetActive(true);
         }
     }
 
@@ -30,28 +28,20 @@ public class DoorScript : MonoBehaviour {
         {
             _isInsideTrigger = false;
             _animator.SetBool("open", false);
-            //OpenPanel.SetActive(false);
         }
     }
 
-    /*private bool IsOpenPanelActive
-    {
-        get
-        {
-            return OpenPanel.activeInHierarchy;
-        }
-    }
-    */
+    
     // Update is called once per frame
     void Update () {
 
-        if(/*IsOpenPanelActive &&*/ _isInsideTrigger)
+        if(_isInsideTrigger)
         {
             if(Input.GetKeyDown(KeyCode.Return))
             {
-                //OpenPanel.SetActive(false);
                 _animator.SetBool("open", true);  
             }
         }
-	}
+
+    }
 }
