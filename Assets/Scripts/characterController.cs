@@ -7,12 +7,17 @@ public class characterController : MonoBehaviour
     //public variable speed
     public float speed = 10.0F;
 
+
     //time variables
+
     public int hours = 7;
     public int minutes = 0;
 
     //this is the canvas text box
     public Text timeText;
+    //new timer
+    public float gameTimer = 0f;
+
 
     // Use this for initialization
     void Start()
@@ -39,9 +44,21 @@ public class characterController : MonoBehaviour
         //move on the X and Y axis
         transform.Translate(straffe, 0, translation);
 
+        //nrew timer
+        gameTimer += Time.deltaTime;
+
+        int seconds = (int)(gameTimer % 60);
+        int minuntes = (int)(gameTimer / 60) % 60;
+        int hours = (int)(gameTimer / 3600 % 24);
+
+        string timerString = string.Format("{0:0}:{1:0}:{2:0}", hours, minuntes, seconds);
+        //display new timer
+        timeText.text = timerString;
+
+
     }
 
-    //function for the time
+    //function for the time where the addition takes place
     public void MoveTimeFwd(int m)
     {
 
@@ -55,5 +72,23 @@ public class characterController : MonoBehaviour
         timeText.text = string.Format("Time: {0}:{1}", hours, minutes.ToString("0#"));
     }
 
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.tag == "Alarm")
+    //     {
+    //         StartCoroutine("hello");
+    //    }
+    // }
+    // IEnumerator hello()
+    // {
+    //   yield return new WaitForSeconds(1);
+    //      gameTimer += 10f;
+
+    //  yield return new WaitForSeconds(5);
+    //    StopCoroutine("hello");
+
+
+    //    }
 
 }
