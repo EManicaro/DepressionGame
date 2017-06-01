@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/level1coloured.unity
+- path: Assets/Day3.unity
   isLoaded: 1
   isActive: 1
