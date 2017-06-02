@@ -1,33 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class DoorScript : MonoBehaviour {
-
-    private Animator _animator;
-
-
+    
     private bool _isInsideTrigger = false;
-
-	// Use this for initialization
-	void Start () {
-        _animator = transform.FindChild("Door").GetComponent<Animator>();
-	}
+    private GameObject touchingDoor;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "door")
         {
             _isInsideTrigger = true;
+            touchingDoor = other.gameObject;
         }
+
+       // if (other.tag == "player" && other.tag == "Doorday2")
+       // {
+      //      Debug.Log("hello");
+      //      StartCoroutine("day2");
+      //  }
+
+ 
     }
+
+  //      IEnumerator day2()
+   //     {
+   //         yield return new WaitForSeconds(4);
+//
+   //         SceneManager.LoadScene("Day2");
+   //     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "door")
         {
             _isInsideTrigger = false;
-            _animator.SetBool("open", false);
+            touchingDoor = null;
         }
     }
 
@@ -39,9 +50,12 @@ public class DoorScript : MonoBehaviour {
         {
             if(Input.GetKeyDown(KeyCode.Return))
             {
-                _animator.SetBool("open", true);  
+                touchingDoor.GetComponentInChildren<Animator> ().SetBool("open", true);
+                touchingDoor.GetComponent<AbstractDoorAction>().DoorAction();
             }
         }
+
+       
 
     }
 }

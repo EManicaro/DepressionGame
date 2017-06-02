@@ -15,8 +15,11 @@ public class characterController : MonoBehaviour
 
     //this is the canvas text box
     public Text timeText;
-    //new timer
-    public float gameTimer = 0f;
+
+    
+
+
+
 
 
     // Use this for initialization
@@ -24,6 +27,7 @@ public class characterController : MonoBehaviour
     {
         // turn off cursor so we won't see it on screen and to stay in the game window
         Cursor.lockState = CursorLockMode.Locked;
+        StartCoroutine("AutoTime");
 
     }
 
@@ -44,18 +48,8 @@ public class characterController : MonoBehaviour
         //move on the X and Y axis
         transform.Translate(straffe, 0, translation);
 
-        //nrew timer
-        gameTimer += Time.deltaTime;
 
-        int seconds = (int)(gameTimer % 60);
-        int minuntes = (int)(gameTimer / 60) % 60;
-        int hours = (int)(gameTimer / 3600 % 24);
-
-        string timerString = string.Format("{0:0}:{1:0}:{2:0}", hours, minuntes, seconds);
-        //display new timer
-        timeText.text = timerString;
-
-
+        //new timer
     }
 
     //function for the time where the addition takes place
@@ -69,26 +63,16 @@ public class characterController : MonoBehaviour
         hours = (hours + ((minutes - dMinutes) / 60)) % 24;
         minutes = dMinutes;
 
-        timeText.text = string.Format("Time: {0}:{1}", hours, minutes.ToString("0#"));
+        timeText.text = string.Format("Time:{0}:{1}", hours, minutes.ToString("0#"));
     }
 
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.tag == "Alarm")
-    //     {
-    //         StartCoroutine("hello");
-    //    }
-    // }
-    // IEnumerator hello()
-    // {
-    //   yield return new WaitForSeconds(1);
-    //      gameTimer += 10f;
-
-    //  yield return new WaitForSeconds(5);
-    //    StopCoroutine("hello");
-
-
-    //    }
-
+    IEnumerator AutoTime()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5);
+            MoveTimeFwd(1);
+        }
+    }
 }
