@@ -62,9 +62,6 @@ public class camMouseLook : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-
-        print(canLook);
-        print(Cursor.lockState);
     }
 
 

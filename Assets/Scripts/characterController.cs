@@ -16,8 +16,7 @@ public class characterController : MonoBehaviour
     //this is the canvas text box
     public Text timeText;
 
-    
-
+	bool canMove = true;
 
 
 
@@ -34,6 +33,8 @@ public class characterController : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
+
+		if (!canMove) return;
 
         //translation will be used for the up and down movements (get the value)
         float translation = Input.GetAxis("Vertical") * speed;
@@ -63,7 +64,7 @@ public class characterController : MonoBehaviour
         hours = (hours + ((minutes - dMinutes) / 60)) % 24;
         minutes = dMinutes;
 
-        timeText.text = string.Format("Time:{0}:{1}", hours, minutes.ToString("0#"));
+		timeText.text = string.Format("Time: {0}:{1}", hours.ToString("0#"), minutes.ToString("0#"));
     }
 
 
@@ -75,4 +76,9 @@ public class characterController : MonoBehaviour
             MoveTimeFwd(1);
         }
     }
+
+	public void CanPlayerMove(bool move)
+	{
+		canMove = move;
+	}
 }
