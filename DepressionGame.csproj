@@ -78,7 +78,8 @@
     <Compile Include="Assets\DoorProject\Scripts\AbstractDoorAction.cs" />
     <Compile Include="Assets\DoorProject\Scripts\ChangeSceneDoor.cs" />
     <Compile Include="Assets\DoorProject\Scripts\DoorScript.cs" />
-    <Compile Include="Assets\OnTrigger.cs" />
+    <Compile Include="Assets\Scripts\ChoiceManager.cs" />
+    <Compile Include="Assets\Scripts\OnTrigger.cs" />
     <Compile Include="Assets\Scripts\camMouseLook.cs" />
     <Compile Include="Assets\Scripts\characterController.cs" />
   </ItemGroup>
