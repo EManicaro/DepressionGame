@@ -51,6 +51,7 @@
      <Compile Include="Assets\DoorProject\Scripts\DoorScript.cs" />
      <Compile Include="Assets\Scripts\ChoiceManager.cs" />
      <Compile Include="Assets\Scripts\OnTrigger.cs" />
+     <Compile Include="Assets\Scripts\UIController.cs" />
      <Compile Include="Assets\Scripts\camMouseLook.cs" />
      <Compile Include="Assets\Scripts\characterController.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

@@ -16,27 +16,17 @@ public class DoorScript : MonoBehaviour {
             _isInsideTrigger = true;
             touchingDoor = other.gameObject;
         }
-
-       // if (other.tag == "player" && other.tag == "Doorday2")
-       // {
-      //      Debug.Log("hello");
-      //      StartCoroutine("day2");
-      //  }
-
- 
+        
     }
-
-  //      IEnumerator day2()
-   //     {
-   //         yield return new WaitForSeconds(4);
-//
-   //         SceneManager.LoadScene("Day2");
-   //     }
+    
 
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "door")
         {
+            touchingDoor.GetComponentInChildren<Animator>().SetBool("open", false);
+            touchingDoor.GetComponent<AbstractDoorAction>().DoorAction();
+
             _isInsideTrigger = false;
             touchingDoor = null;
         }
