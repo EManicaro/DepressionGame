@@ -6,6 +6,8 @@ public class OnTrigger : MonoBehaviour
 {
     // target for reference
     public GameObject Message1;
+    public GameObject YesAnswer;
+    public GameObject NoAnswer;
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,6 +20,16 @@ public class OnTrigger : MonoBehaviour
         {
             Message1.SetActive(true);
         }
+
+        if (other.tag == "Yes")
+        {
+            YesAnswer.SetActive(true);
+        }
+
+        if (other.tag == "No")
+        {
+            NoAnswer.SetActive(true);
+        }
     }
 
 
@@ -27,6 +39,16 @@ public class OnTrigger : MonoBehaviour
         if (other.tag == "Message1")
         {
             Message1.SetActive(false);
+        }
+
+        if (other.tag == "Yes")
+        {
+            YesAnswer.SetActive(false);
+        }
+
+        if (other.tag == "No")
+        {
+            NoAnswer.SetActive(false);
         }
     }
 
