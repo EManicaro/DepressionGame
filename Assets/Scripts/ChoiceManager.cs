@@ -29,13 +29,21 @@ public class ChoiceManager : MonoBehaviour {
 	// triggers the objects once for this scene
 	public void Trigger()
 	{
+		Trigger(true);
+	}
+
+	public void Trigger(bool disablePlayerControl)
+	{
 		if (!wasTriggered)
 		{
 			wasTriggered = true;
 			SetObjectsActive(true);
 
-			GameObject.FindObjectOfType<camMouseLook>().CanPlayerLook(false);
-			GameObject.FindObjectOfType<characterController>().CanPlayerMove(false);
+			if (disablePlayerControl)
+			{
+				GameObject.FindObjectOfType<camMouseLook>().CanPlayerLook(false);
+				GameObject.FindObjectOfType<characterController>().CanPlayerMove(false);
+			}
 		}
 		else
 		{
