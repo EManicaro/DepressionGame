@@ -9,4 +9,9 @@ public class UIController : MonoBehaviour {
     {
         SceneManager.LoadScene ("Day1");
     }
+
+    public void HelpScene()
+    {
+        SceneManager.LoadScene("Help Scene");
+    }
 }
